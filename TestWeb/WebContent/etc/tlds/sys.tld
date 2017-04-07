@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>my 1.0 XML library</description>
+	<display-name>my XML</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>mytlb</short-name>
+	<uri></uri>	
+
+	<tag>
+		<description>my split text</description>
+		<name>sptext</name>
+		<tag-class>com.st.ip.taglibs.SysSpText</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>length</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>my crlf replace text</description>
+		<name>repcrlf</name>
+		<tag-class>com.st.ip.taglibs.SysRepCRLF</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	
+	<tag>
+		<description>my enc url text</description>
+		<name>uenc</name>
+		<tag-class>com.st.ip.taglibs.SysURIEnc</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+</taglib>
