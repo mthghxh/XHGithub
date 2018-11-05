@@ -1,4 +1,7 @@
-#Sat Apr 01 18:38:48 CST 2017
 eclipse.preferences.version=1
-encoding//WebContent/page/Show.jsp=UTF-8
-encoding//WebContent/page/suceess.jsp=UTF-8
+encoding//WebContent/page/expert/creat-expert-team.jsp=UTF-8
+encoding//WebContent/page/publicHealthList.jsp=UTF-8
+encoding//WebContent/page/teamList.jsp=UTF-8
+encoding//WebContent/page/xbkp-online-service-new.jsp=UTF-8
+encoding//src/com/spring/web/LoginController.java=UTF-8
+encoding//src/com/spring/web/TeamController.java=UTF-8

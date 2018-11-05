@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+
+	<Properties>
+		<Property name="log.base">./infolog</Property>
+		<Property name="file.log">${log.base}/log</Property>
+		<Property name="file.error">${log.base}/error</Property>
+		<Property name="pattern-simple">%d{yyyy-MM-dd HH:mm:ss} %msg%n</Property>
+		<Property name="pattern-detail">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] (%C.java:%L) - %msg%n</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="std" target="SYSTEM_OUT">
+			<PatternLayout pattern="${pattern-detail}" />
+			<ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+		</Console>
+		<RollingFile name="sys" fileName="${file.log}" filePattern="${file.sys}.%d{yyyyMMddHH}">
+			<PatternLayout charset="GBK" pattern="${pattern-detail}" />
+			<ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="ACCEPT" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="error" fileName="${file.error}" filePattern="${file.error}.%d{yyyyMMdd}">
+			<PatternLayout charset="GBK" pattern="${pattern-detail}" />
+			<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<loggers>
+		<Root level="info">
+			<Appender-Ref ref="std" />
+			<Appender-Ref ref="sys" />
+			<Appender-Ref ref="error" />
+		</Root>
+	</loggers>
+
+</configuration>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-20 23:01:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping >
+	<class name="persist.Users" table="users">
+		<id name="id" column="id" type="integer"> 
+			<generator class="identity"> </generator>
+		</id> 
+		<property name="telphoneID" column="telphoneID" type="string"/>
+		<property name="deltime" column="deltime" type="string" />
+		<property name="delname" column="delname" type="string" />
+		<property name="username" column="username" type="string" />
+    	<property name="userPwd" column="userPwd" type="string" />			
+	</class>
+</hibernate-mapping>  
+
+
+	

@@ -9,29 +9,41 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd
     http://www.springframework.org/schema/mvc 
     http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-    <!-- mvc:default-servlet-handler/ -->
-  
-    <context:annotation-config/>
-    <!-- mvc:annotation-driven/ --> 
+   
+ <mvc:default-servlet-handler/>  
+<!-- 静态资源映射 -->  
+ 
+<mvc:resources mapping="/etc/**" location="/etc/" cache-period="31536000" />
+
+<mvc:annotation-driven/> 
 	<!-- spring mvc -->
 	<!-- web mvc configuration -->
-	 
-	<!-- 扫描web包，应用Spring的注解 @Controller -->
-	<context:component-scan base-package="com.spring.web.*" />
-	<mvc:annotation-driven/> 
+	
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />  
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>  
-   
-	                    
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/> 
+     <!-- 该 BeanPostProcessor 将自动对标注 @Autowired 的 Bean 进行注入 -->     
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>  
+    
+	
+	 <context:annotation-config/>
+	<!-- 扫描web包，应用Spring的注解 @Controller -->
+	<context:component-scan base-package="com.spring.web,com.service,dao" >
+	</context:component-scan>
+	
+	<!-- 扫描web包，应用Spring的注解 @service -->
+	<context:component-scan base-package="service" >
+	</context:component-scan>
+	<!-- MVC Annotation Driven -->
+	                     
     <!-- configure the InternalResourceViewResolver -->
+    <!-- view resolver 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
             id="internalResourceViewResolver">
         <!-- 前缀 -->
-        <property name="prefix" value="/page/" />
+        <property name="prefix" value="/page/"/>
         <!-- 后缀 -->
-        <property name="suffix" value=".jsp" />
+        <property name="suffix" value=".jsp"/>
     </bean>
     
-   <!-- bean class="com.spring.web.LoginController" / -->
-	
+   <!-- <bean class="com.spring.web.LoginController">< /bean >-->
 </beans>
